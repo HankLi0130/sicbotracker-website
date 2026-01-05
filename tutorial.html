@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="骰寶客新手教學 - 詳細的操作指南，教你如何使用骰寶客記錄和分析骰寶遊戲">
+  <meta name="keywords" content="骰寶客, 教學, 操作指南, 使用說明">
+  <title>新手教學 - 骰寶客 SicBoTracker</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="骰寶客 Logo">
+        <span>骰寶客</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">首頁</a>
+        <a href="tutorial.html" class="active">新手教學</a>
+        <a href="privacy.html">隱私權政策</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tutorial Content -->
+  <main class="tutorial-section">
+    <div class="container">
+      <h1 class="text-center">新手教學</h1>
+      <p class="text-center subtitle">詳細的操作指南，幫助你快速上手骰寶客</p>
+
+      <!-- Step 1: Add Record -->
+      <div class="tutorial-step">
+        <div class="tutorial-content">
+          <span class="step-number">1</span>
+          <h2>新增記錄</h2>
+          <p>開啟應用程式後，你會看到記錄頁面。點擊右下角的 <strong>「+」按鈕</strong> 開始新增一局記錄。</p>
+          <p>在彈出的對話框中，選擇三顆骰子的點數（1-6），然後點擊「確認」即可新增記錄。</p>
+          <ul>
+            <li>點選骰子圖示來選擇點數</li>
+            <li>三顆骰子都選擇後，點擊「確認」</li>
+            <li>新記錄會立即顯示在列表最上方</li>
+          </ul>
+        </div>
+        <div class="tutorial-image">
+          <!-- TODO: Add screenshot -->
+          <img src="images/screenshots/tutorial_add.png" alt="新增記錄教學截圖">
+        </div>
+      </div>
+
+      <!-- Step 2: View Records -->
+      <div class="tutorial-step">
+        <div class="tutorial-content">
+          <span class="step-number">2</span>
+          <h2>瀏覽記錄</h2>
+          <p>所有記錄會以列表形式顯示在記錄頁面中。每筆記錄包含：</p>
+          <ul>
+            <li><strong>骰子點數</strong>：三顆骰子的實際點數</li>
+            <li><strong>總和</strong>：三顆骰子點數加總（3-18）</li>
+            <li><strong>大/小</strong>：總和 11-18 為大，3-10 為小</li>
+            <li><strong>單/雙</strong>：依總和奇偶決定</li>
+            <li><strong>豹子</strong>：三顆骰子點數相同時顯示</li>
+          </ul>
+        </div>
+        <div class="tutorial-image">
+          <!-- TODO: Add screenshot -->
+          <img src="images/screenshots/tutorial_list.png" alt="瀏覽記錄教學截圖">
+        </div>
+      </div>
+
+      <!-- Step 3: Edit Record -->
+      <div class="tutorial-step">
+        <div class="tutorial-content">
+          <span class="step-number">3</span>
+          <h2>修改記錄</h2>
+          <p>如果輸入錯誤，你可以輕鬆修改記錄：</p>
+          <ol>
+            <li>在記錄列表中找到要修改的記錄</li>
+            <li>點擊該記錄進入編輯模式</li>
+            <li>重新選擇正確的骰子點數</li>
+            <li>點擊「確認」儲存修改</li>
+          </ol>
+        </div>
+        <div class="tutorial-image">
+          <!-- TODO: Add screenshot -->
+          <img src="images/screenshots/tutorial_edit.png" alt="修改記錄教學截圖">
+        </div>
+      </div>
+
+      <!-- Step 4: Delete Record -->
+      <div class="tutorial-step">
+        <div class="tutorial-content">
+          <span class="step-number">4</span>
+          <h2>刪除記錄</h2>
+          <p>要刪除記錄，可以使用滑動刪除功能：</p>
+          <ol>
+            <li>在記錄列表中找到要刪除的記錄</li>
+            <li>向左滑動該記錄</li>
+            <li>點擊出現的「刪除」按鈕</li>
+            <li>確認刪除後，記錄會被永久移除</li>
+          </ol>
+          <p class="text-secondary"><em>注意：刪除後無法復原，請謹慎操作。</em></p>
+        </div>
+        <div class="tutorial-image">
+          <!-- TODO: Add screenshot -->
+          <img src="images/screenshots/tutorial_delete.png" alt="刪除記錄教學截圖">
+        </div>
+      </div>
+
+      <!-- Step 5: Analysis -->
+      <div class="tutorial-step">
+        <div class="tutorial-content">
+          <span class="step-number">5</span>
+          <h2>查看分析</h2>
+          <p>切換到「分析」頁面，可以查看詳細的統計數據：</p>
+          <ul>
+            <li><strong>大小統計</strong>：大、小出現的次數與比例</li>
+            <li><strong>單雙統計</strong>：單、雙出現的次數與比例</li>
+            <li><strong>豹子統計</strong>：豹子出現的次數</li>
+            <li><strong>點數分布</strong>：各點數總和的出現頻率</li>
+          </ul>
+          <p>這些數據可以幫助你分析遊戲趨勢，做出更好的判斷。</p>
+        </div>
+        <div class="tutorial-image">
+          <!-- TODO: Add screenshot -->
+          <img src="images/screenshots/tutorial_analysis.png" alt="分析頁面教學截圖">
+        </div>
+      </div>
+
+      <!-- Tips Section -->
+      <div class="card mt-lg">
+        <h2>小提示</h2>
+        <ul>
+          <li>💡 所有資料都儲存在本地裝置，不會上傳到任何伺服器</li>
+          <li>💡 記錄上限為 1000 筆，超過後最舊的記錄會自動刪除</li>
+          <li>💡 建議定期截圖備份重要的分析數據</li>
+          <li>💡 如果遇到問題，歡迎到 GitHub 提出 Issue</li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-lg">
+        <a href="https://play.google.com/store/apps/details?id=app.hankdev.sicbotracker"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener noreferrer">
+          立即下載骰寶客
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">首頁</a>
+        <a href="tutorial.html">新手教學</a>
+        <a href="privacy.html">隱私權政策</a>
+        <a href="https://github.com/HankLi0130/SicBoTracker" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <p>&copy; 2025 骰寶客 SicBoTracker. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

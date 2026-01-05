@@ -255,6 +255,7 @@ a:hover {
 
 .screenshot-grid {
   display: flex;
+  justify-content: center;
   gap: var(--spacing-lg);
   overflow-x: auto;
   padding: var(--spacing-md) 0;
@@ -271,6 +272,10 @@ a:hover {
 /* Tutorial Page */
 .tutorial-section {
   padding: var(--spacing-xxl) 0;
+}
+
+.tutorial-section .container {
+  max-width: 900px;
 }
 
 .tutorial-step {

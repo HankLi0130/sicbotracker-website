@@ -255,11 +255,11 @@ a:hover {
 
 .screenshot-grid {
   display: flex;
-  justify-content: center;
   gap: var(--spacing-lg);
   overflow-x: auto;
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
   scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .screenshot-grid img {
@@ -353,6 +353,12 @@ a:hover {
 }
 
 /* Responsive */
+@media (min-width: 769px) {
+  .screenshot-grid {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .header .container {
     flex-direction: column;
@@ -369,10 +375,27 @@ a:hover {
 
   .tutorial-step {
     grid-template-columns: 1fr;
+    text-align: center;
   }
 
   .tutorial-step:nth-child(even) {
     direction: ltr;
+  }
+
+  .tutorial-content ul,
+  .tutorial-content ol {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .tutorial-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .step-number {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

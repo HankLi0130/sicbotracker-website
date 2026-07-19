@@ -313,23 +313,73 @@ a:hover {
   margin-bottom: var(--spacing-md);
 }
 
-/* Privacy Page */
-.privacy-content {
+/* Privacy & Announcement Pages */
+.privacy-content,
+.announcement-content {
   padding: var(--spacing-xxl) 0;
 }
 
-.privacy-content h2 {
+.privacy-content h2,
+.announcement-content h2 {
   color: var(--color-primary);
   margin-top: var(--spacing-xl);
 }
 
-.privacy-content ul {
+.privacy-content ul,
+.announcement-content ul {
   margin-left: var(--spacing-xl);
   margin-bottom: var(--spacing-md);
 }
 
-.privacy-content li {
+.privacy-content li,
+.announcement-content li {
   margin-bottom: var(--spacing-sm);
+}
+
+/* Tier Comparison Table */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+.tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.tier-table th,
+.tier-table td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: center;
+  border-bottom: 1px solid var(--color-surface-variant);
+  white-space: nowrap;
+}
+
+.tier-table th {
+  background-color: var(--color-surface-variant);
+}
+
+.tier-table th:first-child,
+.tier-table td:first-child {
+  text-align: left;
+  white-space: normal;
+}
+
+/* FAQ */
+.faq-item {
+  margin-bottom: var(--spacing-md);
+}
+
+.faq-item h3 {
+  color: var(--color-secondary);
+  font-size: 1.125rem;
+}
+
+.faq-item p:last-child {
+  margin-bottom: 0;
 }
 
 /* Footer */

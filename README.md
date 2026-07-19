@@ -8,6 +8,7 @@
 sicbotracker-website/
 ├── index.html          # 首頁（歡迎頁面 + 下載連結）
 ├── tutorial.html       # 新手教學
+├── announcement.html   # 未來規劃公告（功能分級 + FAQ）
 ├── privacy.html        # 隱私權政策
 ├── css/
 │   └── style.css       # 深色主題樣式表

@@ -42,12 +42,6 @@ python3 -m http.server 8000
 
 部署後網址：`https://hankli0130.github.io/sicbotracker-website/`
 
-## TODO
-
-- [ ] 新增 App Logo 圖片 (`images/logo.png`)
-- [ ] 新增應用程式截圖 (`images/screenshots/`)
-- [ ] 啟用 GitHub Pages
-
 ## 相關連結
 
 - [骰寶客 Android App](https://github.com/HankLi0130/SicBoTracker)
@@ -55,4 +49,4 @@ python3 -m http.server 8000
 
 ## 授權
 
-Copyright © 2025 骰寶客 SicBoTracker
+Copyright © 2026 骰寶客 SicBoTracker

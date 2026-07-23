@@ -325,7 +325,12 @@ a:hover {
   margin-top: var(--spacing-xl);
 }
 
+.privacy-content h3 {
+  margin-top: var(--spacing-lg);
+}
+
 .privacy-content ul,
+.privacy-content ol,
 .announcement-content ul {
   margin-left: var(--spacing-xl);
   margin-bottom: var(--spacing-md);

@@ -7,7 +7,7 @@ export function isValidShareId(value) {
   if (!SHARE_ID_PATTERN.test(value ?? "")) return false;
 
   try {
-    const padded = `${value}==`;
+    const padded = `${value.replaceAll("-", "+").replaceAll("_", "/")}==`;
     if (typeof globalThis.atob === "function") {
       return globalThis.atob(padded).length === 16;
     }

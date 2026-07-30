@@ -15,6 +15,8 @@ const fixture = JSON.parse(
 
 test("share ID accepts exactly 128-bit URL-safe Base64 without padding", () => {
   assert.equal(isValidShareId("AAAAAAAAAAAAAAAAAAAAAA"), true);
+  assert.equal(isValidShareId("Zp4CIX9Tn7gLwljOAo-V5w"), true);
+  assert.equal(isValidShareId("_wAAAAAAAAAAAAAAAAAAAA"), true);
   assert.equal(isValidShareId("AAAAAAAAAAAAAAAAAAAAA"), false);
   assert.equal(isValidShareId("AAAAAAAAAAAAAAAAAAAAA="), false);
   assert.equal(isValidShareId("AAAAAAAAAAAAAAAAAAAAA+"), false);

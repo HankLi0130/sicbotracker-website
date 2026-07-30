@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "ownerUid": "must-not-be-exposed",
+  "startedAt": 1800000000000,
+  "updatedAt": 1800000005000,
+  "rolls": {
+    "0": {
+      "id": "triple-one",
+      "timestamp": 1800000000001,
+      "dice1": 1,
+      "dice2": 1,
+      "dice3": 1
+    },
+    "1": {
+      "id": "triple-five",
+      "timestamp": 1800000000002,
+      "dice1": 5,
+      "dice2": 5,
+      "dice3": 5
+    },
+    "2": {
+      "id": "big-odd",
+      "timestamp": 1800000000003,
+      "dice1": 6,
+      "dice2": 6,
+      "dice3": 5
+    },
+    "3": {
+      "id": "small-even",
+      "timestamp": 1800000000004,
+      "dice1": 1,
+      "dice2": 2,
+      "dice3": 3
+    },
+    "4": {
+      "id": "small-odd",
+      "timestamp": 1800000000005,
+      "dice1": 2,
+      "dice2": 3,
+      "dice3": 4
+    }
+  }
+}

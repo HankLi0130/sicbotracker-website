@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="骰寶客即時分享 - 查看即時骰寶紀錄與分析">
+  <meta name="referrer" content="no-referrer">
+  <title>即時分享 - 骰寶客 SicBoTracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/share.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body class="share-page">
+  <header class="share-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="骰寶客 Logo">
+        <span>骰寶客</span>
+      </a>
+      <span class="live-badge"><span aria-hidden="true"></span>即時分享</span>
+    </div>
+  </header>
+
+  <main class="share-main container">
+    <section id="loading-state" class="share-state" aria-live="polite">
+      <div class="loading-spinner" aria-hidden="true"></div>
+      <h1>正在連線</h1>
+      <p>正在取得最新的骰寶紀錄…</p>
+    </section>
+
+    <section id="invalid-state" class="share-state" hidden>
+      <div class="state-icon" aria-hidden="true">🔗</div>
+      <h1>無法開啟分享</h1>
+      <p>此連結無效、已停止或已超過 12 小時有效期限。</p>
+    </section>
+
+    <section id="network-state" class="share-state" hidden>
+      <div class="state-icon" aria-hidden="true">📡</div>
+      <h1>連線中斷</h1>
+      <p>請確認網路連線。本頁會在連線恢復後自動取得最新紀錄。</p>
+    </section>
+
+    <section id="empty-state" class="share-state" hidden>
+      <div class="state-icon" aria-hidden="true">🎲</div>
+      <h1>分享進行中</h1>
+      <p>目前還沒有遊戲紀錄；新增紀錄後會自動顯示在這裡。</p>
+      <p id="empty-updated-at" class="updated-at"></p>
+    </section>
+
+    <div id="share-content" hidden>
+      <div class="share-summary">
+        <div>
+          <p class="eyebrow">LIVE</p>
+          <h1>即時骰寶紀錄</h1>
+          <p id="updated-at" class="updated-at"></p>
+        </div>
+        <div class="total-card">
+          <span id="total-rolls">0</span>
+          <small>總局數</small>
+        </div>
+      </div>
+
+      <details class="share-section" data-section="records" open>
+        <summary>
+          <span>遊戲紀錄</span>
+          <span class="summary-hint">展開／收合</span>
+        </summary>
+        <div id="record-list" class="record-list"></div>
+      </details>
+
+      <details class="share-section" data-section="basic" open>
+        <summary>
+          <span>基本分析</span>
+          <span class="summary-hint">展開／收合</span>
+        </summary>
+        <div class="section-body">
+          <div id="basic-analysis" class="metric-grid"></div>
+        </div>
+      </details>
+
+      <details class="share-section" data-section="advanced">
+        <summary>
+          <span>進階分析</span>
+          <span class="summary-hint">展開／收合</span>
+        </summary>
+        <div class="section-body advanced-stack">
+          <section>
+            <h2>各豹子出現率</h2>
+            <div id="triple-rates" class="metric-grid compact"></div>
+          </section>
+          <section>
+            <h2>點數 1–6 出現率</h2>
+            <div id="dice-heat" class="bar-list"></div>
+          </section>
+          <section>
+            <h2>總和 3–18 出現率</h2>
+            <div id="sum-distribution" class="distribution-grid"></div>
+          </section>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <footer class="share-footer">
+    <div class="container">
+      <p>此頁只供檢視；分享內容由骰寶客 App 即時更新。</p>
+      <a href="privacy.html">隱私權政策</a>
+    </div>
+  </footer>
+
+  <script type="module" src="js/live-share-viewer.mjs"></script>
+</body>
+</html>

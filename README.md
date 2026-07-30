@@ -9,9 +9,15 @@ sicbotracker-website/
 ├── index.html          # 首頁（歡迎頁面 + 下載連結）
 ├── tutorial.html       # 新手教學
 ├── announcement.html   # 未來規劃公告（功能分級 + FAQ）
+├── share.html          # 12 小時即時分享 viewer
 ├── privacy.html        # 隱私權政策
 ├── css/
-│   └── style.css       # 深色主題樣式表
+│   ├── style.css       # 共用深色主題樣式表
+│   └── share.css       # Viewer responsive 樣式
+├── js/
+│   ├── live-share-core.mjs    # Schema parser 與骰寶分析
+│   └── live-share-viewer.mjs  # Firebase RTDB listener 與畫面更新
+├── tests/              # Parser／analyzer deterministic tests
 ├── images/
 │   ├── logo.png        # App Logo
 │   └── screenshots/    # 應用程式截圖
@@ -20,7 +26,7 @@ sicbotracker-website/
 
 ## 本地開發
 
-直接用瀏覽器開啟 HTML 檔案即可預覽：
+首頁等靜態頁可直接用瀏覽器開啟。即時分享頁使用 JavaScript module，請啟動本地伺服器：
 
 ```bash
 # macOS
@@ -30,6 +36,26 @@ open index.html
 python3 -m http.server 8000
 # 然後開啟 http://localhost:8000
 ```
+
+執行 parser 與 analyzer tests（需要 Node.js 20+）：
+
+```bash
+npm test
+```
+
+## 即時分享 Viewer
+
+Android App 可建立格式為 `share.html?s={shareId}` 的公開連結。Viewer 只監聽該
+share ID 對應的 Firebase Realtime Database child，不會列舉其他分享，也不會顯示
+建立者的帳號識別碼。
+
+- 遠端內容是 App 目前本機骰寶清單的暫時 projection，包含骰子點數、紀錄 ID 與時間
+- 連結最長有效 12 小時；持有連結的任何人都能在有效期間匿名查看
+- 停止分享、登出或刪除帳號時，App 會先嘗試移除遠端內容
+- 若裝置長期離線、App 被強制移除或 cleanup 持續失敗，過期 node 可能暫時殘留；
+  RTDB Rules 仍會拒絕過期 viewer 存取
+- 首個有效 snapshot 只記錄一次 `live_share_view_opened` Analytics event，不附帶
+  share ID、URL、UID、時間或骰子內容
 
 ## 部署
 

@@ -17,6 +17,17 @@ export function isValidShareId(value) {
   }
 }
 
+export function analyticsConfig(location) {
+  const pageUrl = new URL(location.href);
+  pageUrl.search = "";
+  pageUrl.hash = "";
+  return {
+    send_page_view: false,
+    page_location: pageUrl.href,
+    page_referrer: "",
+  };
+}
+
 export function normalizeRolls(value) {
   if (value == null) return [];
 

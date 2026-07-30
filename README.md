@@ -54,8 +54,9 @@ share ID 對應的 Firebase Realtime Database child，不會列舉其他分享�
 - 停止分享、登出或刪除帳號時，App 會先嘗試移除遠端內容
 - 若裝置長期離線、App 被強制移除或 cleanup 持續失敗，過期 node 可能暫時殘留；
   RTDB Rules 仍會拒絕過期 viewer 存取
-- 首個有效 snapshot 只記錄一次 `live_share_view_opened` Analytics event，不附帶
-  share ID、URL、UID、時間或骰子內容
+- 首個有效 snapshot 只記錄一次 `live_share_view_opened` Analytics event；Analytics
+  使用不含 query 或 fragment 的 `share.html` page location，不附帶 bearer share ID、
+  UID、紀錄時間或骰子內容
 
 ## 部署
 

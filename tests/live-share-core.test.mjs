@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   analyzeRolls,
+  analyticsConfig,
   formatPercent,
   isValidShareId,
   normalizeRolls,
@@ -20,6 +21,22 @@ test("share ID accepts exactly 128-bit URL-safe Base64 without padding", () => {
   assert.equal(isValidShareId("AAAAAAAAAAAAAAAAAAAAA"), false);
   assert.equal(isValidShareId("AAAAAAAAAAAAAAAAAAAAA="), false);
   assert.equal(isValidShareId("AAAAAAAAAAAAAAAAAAAAA+"), false);
+});
+
+test("analytics config disables page views and excludes bearer URL data", () => {
+  const shareId = "Zp4CIX9Tn7gLwljOAo-V5w";
+  const location = {
+    href: `https://example.com/share.html?s=${shareId}#records`,
+  };
+
+  const config = analyticsConfig(location);
+
+  assert.deepEqual(config, {
+    send_page_view: false,
+    page_location: "https://example.com/share.html",
+    page_referrer: "",
+  });
+  assert.equal(JSON.stringify(config).includes(shareId), false);
 });
 
 test("schema parser normalizes RTDB objects without exposing owner UID", () => {

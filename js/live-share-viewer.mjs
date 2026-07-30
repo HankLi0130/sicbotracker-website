@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 import {
-  getAnalytics,
+  initializeAnalytics,
   isSupported as isAnalyticsSupported,
   logEvent,
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
@@ -11,10 +11,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
 import {
   analyzeRolls,
+  analyticsConfig,
   formatPercent,
   isValidShareId,
   parseSnapshot,
-} from "./live-share-core.mjs?v=747c4c9";
+} from "./live-share-core.mjs?v=20260730-1";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDXpuF4zXzpgulcJiWINgh8-SKz886gZek",
@@ -57,8 +58,15 @@ function startViewer() {
 
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
+  const safeAnalyticsConfig = analyticsConfig(window.location);
   const analyticsPromise = isAnalyticsSupported()
-    .then((supported) => (supported ? getAnalytics(app) : null))
+    .then((supported) => (
+      supported
+        ? initializeAnalytics(app, {
+          config: safeAnalyticsConfig,
+        })
+        : null
+    ))
     .catch(() => null);
 
   unsubscribe = onValue(
@@ -72,7 +80,7 @@ function startViewer() {
       try {
         const parsed = parseSnapshot(snapshot.val());
         renderSnapshot(parsed);
-        logValidViewerOpen(analyticsPromise);
+        logValidViewerOpen(analyticsPromise, safeAnalyticsConfig);
       } catch {
         showState("invalid");
       }
@@ -252,9 +260,14 @@ function initializeSectionPreferences() {
   }
 }
 
-async function logValidViewerOpen(analyticsPromise) {
+async function logValidViewerOpen(analyticsPromise, safeAnalyticsConfig) {
   if (validSnapshotLogged) return;
   validSnapshotLogged = true;
   const analytics = await analyticsPromise;
-  if (analytics) logEvent(analytics, "live_share_view_opened");
+  if (analytics) {
+    logEvent(analytics, "live_share_view_opened", {
+      page_location: safeAnalyticsConfig.page_location,
+      page_referrer: safeAnalyticsConfig.page_referrer,
+    });
+  }
 }

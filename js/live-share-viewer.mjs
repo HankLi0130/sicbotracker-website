@@ -14,7 +14,7 @@ import {
   formatPercent,
   isValidShareId,
   parseSnapshot,
-} from "./live-share-core.mjs";
+} from "./live-share-core.mjs?v=747c4c9";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDXpuF4zXzpgulcJiWINgh8-SKz886gZek",
